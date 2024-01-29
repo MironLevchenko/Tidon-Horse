@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление записи</title>
+</head>
+<body>
+    <div class="page">
+ <h1>Добавление записи</h1>
+    <form action="/formbase" method="post" class="form">
+        <div class="hint">
+            <p>req_id</p>
+<input type="text" class="name inp" name="req_id" placeholder="айдишник запроса:" required>
+</div>
+<div class="hint">
+    <p>gifNum:</p>
+<input type="text" class="name inp" name="gifNum" placeholder="номер анимации" required>
+
+</div>
+<div class="hint">
+    <p>keyWord:</p>
+<input type="text" class="name inp" name="keyWord" placeholder="ответ ассистента" required>
+
+</div>
+<div class="pos-btn"><button type="submit">Отправить</button></div>
+    </form>
+
+</div>
+<div action="http://localhost:4444/formbase" method="post"  class="footer" ></div><!--Футер для отступа-->
+</body>
+</html>
