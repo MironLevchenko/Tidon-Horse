@@ -51,10 +51,8 @@ window.onload = function(){
           parentObject[`Monument_${index2 + 3}`],
           parentObject[`Monument_${index2 + 4}`]
         );
-        console.log('я заебашил цикл')
         index2 += 5; // увеличиваем индекс для следующего вызова
       } else {
-        console.log('я заебашил цикл')
         clearInterval(intervalId); // останавливаем вызовы, если достигнут конец данных
       }
     }
@@ -66,21 +64,21 @@ window.onload = function(){
 
     function GenerateContent(ChildObject1,ChildObject2,ChildObject3,ChildObject4){
       Horse_Animation(document.getElementById('horse_image'))
-    // подключаем основные контейнеры HTML тела
-    let MainImage_for_Block1 =  document.getElementById('Image_monument_block_1');
-    let MainImage_for_Block2 =  document.getElementById('Image_monument_block_2');
-    let MainImage_for_Block3 =  document.getElementById('Image_monument_block_3');
-    let MainImage_for_Block4 =  document.getElementById('Image_monument_block_4');
-    let Text_Monument_Block1 = document.getElementById('text_monument_1');
-    let Text_Monument_Block2 = document.getElementById('text_monument_2');
-    let Text_Monument_Block3 = document.getElementById('text_monument_3');
-    let Text_Monument_Block4 = document.getElementById('text_monument_4');
-    // Вызываем функцию и заполняем свойствами элементов контейнеры на странице
-    insertsContent(MainImage_for_Block1,document.getElementById('block_1'),ChildObject1.Img_1,ChildObject1.Text,Text_Monument_Block1,ChildObject1.Name,ChildObject1.Img_2,ChildObject1.Img_3,ChildObject1.Img_4);
-    insertsContent(MainImage_for_Block2,document.getElementById('block_2'),ChildObject2.Img_1,ChildObject2.Text,Text_Monument_Block2,ChildObject2.Name,ChildObject2.Img_2,ChildObject2.Img_3,ChildObject2.Img_4);
-    insertsContent(MainImage_for_Block3,document.getElementById('block_3'),ChildObject3.Img_1,ChildObject3.Text,Text_Monument_Block3,ChildObject3.Name,ChildObject3.Img_2,ChildObject3.Img_3,ChildObject3.Img_4);
-    insertsContent(MainImage_for_Block4,document.getElementById('block_4'),ChildObject4.Img_1,ChildObject4.Text,Text_Monument_Block4,ChildObject4.Name,ChildObject4.Img_2,ChildObject4.Img_3,ChildObject4.Img_4);
-    //Главная функция вызова чтобы загружать элементы контентом
+      // подключаем основные контейнеры HTML тела
+      let MainImage_for_Block1 =  document.getElementById('Image_monument_block_1');
+      let MainImage_for_Block2 =  document.getElementById('Image_monument_block_2');
+      let MainImage_for_Block3 =  document.getElementById('Image_monument_block_3');
+      let MainImage_for_Block4 =  document.getElementById('Image_monument_block_4');
+      let Text_Monument_Block1 = document.getElementById('text_monument_1');
+      let Text_Monument_Block2 = document.getElementById('text_monument_2');
+      let Text_Monument_Block3 = document.getElementById('text_monument_3');
+      let Text_Monument_Block4 = document.getElementById('text_monument_4');
+      // Вызываем функцию и заполняем свойствами элементов контейнеры на странице
+      insertsContent(MainImage_for_Block1,document.getElementById('block_1'),ChildObject1.Img_1,ChildObject1.Text,Text_Monument_Block1,ChildObject1.Name,ChildObject1.Img_2,ChildObject1.Img_3,ChildObject1.Img_4);
+      insertsContent(MainImage_for_Block2,document.getElementById('block_2'),ChildObject2.Img_1,ChildObject2.Text,Text_Monument_Block2,ChildObject2.Name,ChildObject2.Img_2,ChildObject2.Img_3,ChildObject2.Img_4);
+      insertsContent(MainImage_for_Block3,document.getElementById('block_3'),ChildObject3.Img_1,ChildObject3.Text,Text_Monument_Block3,ChildObject3.Name,ChildObject3.Img_2,ChildObject3.Img_3,ChildObject3.Img_4);
+      insertsContent(MainImage_for_Block4,document.getElementById('block_4'),ChildObject4.Img_1,ChildObject4.Text,Text_Monument_Block4,ChildObject4.Name,ChildObject4.Img_2,ChildObject4.Img_3,ChildObject4.Img_4);
+      //Главная функция вызова чтобы загружать элементы контентом
   function insertsContent(block_image_monument,block,ChildObjectIMG1,ChildObjectTEXT,textBlockParent,ChildObjectNAME,ChildObjectIMG2,ChildObjectIMG3,ChildObjectIMG4){
       textBlockParent.textContent = ChildObjectNAME;
       block_image_monument.src = ChildObjectIMG1;
@@ -105,7 +103,6 @@ window.onload = function(){
      //функция скрытия описания памятника если нажать вне окна 
      MainWindow.onclick = (event)=>{
         if (event.target == modalWindow){
-
             // document.getElementById("modalWindow").remove();
             modalWindow.style.display = 'none';
             document.getElementById('list').style.display = "grid";
