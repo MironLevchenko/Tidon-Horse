@@ -78,46 +78,50 @@ window.onload = function(){
       insertsContent(MainImage_for_Block2,document.getElementById('block_2'),ChildObject2.Img_1,ChildObject2.Text,Text_Monument_Block2,ChildObject2.Name,ChildObject2.Img_2,ChildObject2.Img_3,ChildObject2.Img_4);
       insertsContent(MainImage_for_Block3,document.getElementById('block_3'),ChildObject3.Img_1,ChildObject3.Text,Text_Monument_Block3,ChildObject3.Name,ChildObject3.Img_2,ChildObject3.Img_3,ChildObject3.Img_4);
       insertsContent(MainImage_for_Block4,document.getElementById('block_4'),ChildObject4.Img_1,ChildObject4.Text,Text_Monument_Block4,ChildObject4.Name,ChildObject4.Img_2,ChildObject4.Img_3,ChildObject4.Img_4);
-      //Главная функция вызова чтобы загружать элементы контентом
-  function insertsContent(block_image_monument,block,ChildObjectIMG1,ChildObjectTEXT,textBlockParent,ChildObjectNAME,ChildObjectIMG2,ChildObjectIMG3,ChildObjectIMG4){
+   //Главная функция вызова чтобы загружать элементы контентом
+    function insertsContent(block_image_monument, block, ChildObjectIMG1, ChildObjectTEXT, textBlockParent, ChildObjectNAME, ChildObjectIMG2, ChildObjectIMG3, ChildObjectIMG4) {
       textBlockParent.textContent = ChildObjectNAME;
       block_image_monument.src = ChildObjectIMG1;
       block.addEventListener("click", () => {
-      generateDescriptionANDImage(ChildObjectTEXT);
-      InsertImageForBlock(ChildObjectIMG2,ChildObjectIMG3,ChildObjectIMG4)
-      transparency(modalWindow,document.getElementById('list'))});
-  };
+        generateDescriptionANDImage(ChildObjectTEXT);
+        InsertImageForBlock(ChildObjectIMG2, ChildObjectIMG3, ChildObjectIMG4);
+        transparency(modalWindow, document.getElementById('list'));
+      });
+    }
     // печать текста в дочернем окне 
-    function  generateDescriptionANDImage(description){
+    function generateDescriptionANDImage(description) {
       modalWindow.style.display = 'flex';
       modalWindow.style.opacity = '0';
-      document.getElementById('list').style.opacity='0';
+      document.getElementById('list').style.opacity = '0';
       modWinIMG.innerHTML = '';
       TexWin.textContent = description;
-    };
+    }
     //функция для плавного повяления блока с подробностями о памятнике
-    function transparency(ParentWin,SnakeWin){
-      setTimeout(()=>ParentWin.style.opacity="1",150);  
+    function transparency(ParentWin, SnakeWin) {
+      setTimeout(() => {
+        ParentWin.style.opacity = "1";
         SnakeWin.style.display = "none";
-    };
-     //функция скрытия описания памятника если нажать вне окна 
-     MainWindow.onclick = (event)=>{
-        if (event.target == modalWindow){
-            // document.getElementById("modalWindow").remove();
-            modalWindow.style.display = 'none';
-            document.getElementById('list').style.display = "grid";
-            setTimeout(()=>document.getElementById('list').style.opacity="1",150);  
-        }
+      }, 150);
+    }
+    //функция скрытия описания памятника если нажать вне окна 
+    MainWindow.onclick = (event) => {
+      if (event.target == modalWindow) {
+        modalWindow.style.display = 'none';
+        document.getElementById('list').style.display = "grid";
+        setTimeout(() => {
+          document.getElementById('list').style.opacity = "1";
+        }, 150);
+      }
     }
     // Перебираем данные и выгружаем фотографии в блок
-    function InsertImageForBlock(Image2,Image3,Image4){
-      let arrImage = [Image2,Image3,Image4]
-      for(let i=0; i<arrImage.length;i++){
+    function InsertImageForBlock(Image2, Image3, Image4) {
+      let arrImage = [Image2, Image3, Image4];
+      arrImage.forEach(img => {
         let ImgInWin = document.createElement('img');
-        ImgInWin.src = arrImage[i];
-        ImgInWin.style.cssText=`border-radius: 20px; border-style: inset; width:250px; height:290px`;
+        ImgInWin.src = img;
+        ImgInWin.style.cssText = `border-radius: 20px; border-style: inset; width:250px; height:290px`;
         modWinIMG.appendChild(ImgInWin);
-      };
-    };
+      });
+    } 
   }
 }
